@@ -1,23 +1,54 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
+import LandingPage from './pages/LandingPage/LandingPage';
+import { StoreLayout } from './components/layout/layouts/StoreLayout/StoreLayout';
+
+import { Dashboard, Expired, Medicines, Purchase, Sales, SignIn, ForgotPassword, SignUp } from "./pages/Store";
+import { NotFound } from "./components/common";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <LandingPage/>
+          </Route>
+          <Route exact path='/store/dashboard'>
+            <StoreLayout><Dashboard/></StoreLayout>
+          </Route>
+          <Route exact path='/store/medicines'>
+            <StoreLayout><Medicines/></StoreLayout>
+          </Route>
+          <Route exact path='/store/sales'>
+            <StoreLayout><Sales/></StoreLayout>
+          </Route>
+          <Route exact path='/store/purchase'>
+            <StoreLayout><Purchase/></StoreLayout>
+          </Route>
+          <Route exact path='/store/expired'>
+            <StoreLayout><Expired/></StoreLayout>
+          </Route>
+          <Route exact path='/store/signin'>
+            <SignIn/>
+          </Route>
+          <Route exact path='/store/signup'>
+            <SignUp/>
+          </Route>
+          <Route exact path='/store/forget-password'>
+            <ForgotPassword/>
+          </Route>
+          
+          <Route path="*">
+            <NotFound/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

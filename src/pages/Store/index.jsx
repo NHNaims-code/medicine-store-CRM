@@ -1,0 +1,8 @@
+export {default as Dashboard} from './dashboard/Dashboard'
+export {default as Expired} from './expired/Expired'
+export {default as Medicines} from './medicines/Medicines'
+export {default as Purchase} from './purchase/Purchase'
+export {default as Sales} from './sales/Sales'
+export {default as SignIn} from './auth/signin/SignIn'
+export {default as SignUp} from './auth/signup/SignUp'
+export {default as ForgotPassword} from './auth/forget_password/ForgetPassword'
